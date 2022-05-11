@@ -14,6 +14,21 @@ class UsersController < ApplicationController
         
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+    
+        if @user.update(user_params)
+          redirect_to @user
+        else
+          render :edit
+        end
+      end
+    
+
     private  
     # gives us back just the hash containing the params we need to
     # to create or update a post
