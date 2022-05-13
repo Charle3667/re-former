@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+    def index
+        @users = User.find(params[:id])
+    end
+
     def new
         @user = User.new()
     end
@@ -31,7 +35,7 @@ class UsersController < ApplicationController
 
     private  
     # gives us back just the hash containing the params we need to
-    # to create or update a post
+    # to create or update a post nncjc
     def user_params
       params.require(:user).permit(:username,:email,:password)
     end
